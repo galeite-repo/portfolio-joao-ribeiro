@@ -1,1 +1,131 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    list-style: none;
+    word-wrap: break-word;
+}
+
+body {
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.75em;
+    color: #999;
+    overflow-x: hidden !important;
+    background: #fff;
+}
+
+p {
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.75em;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 55px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h4 {
+    font-size: 30px;
+}
+
+h1,
+h2,
+h4 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    line-height: 1.25em;
+    margin: 0 0 20px 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    color: #f4f4f4;
+}
+
+
+.container {
+    padding: 1.2rem 6%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+
+// configurações
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section .container {
+    width: 100%;
+}
+
+
+.heading {
+    width: 100%;
+    min-width: 300px;
+    text-align: center;
+    padding: 0rem;
+    padding-top: 2rem;
+}
+
+section .box {
+    max-width: 50%;
+    min-width: 300px;
+}
+
+.bg-light {
+    background-color: #fff;
+}
+
+.bg-light .heading h2 {
+    color: #000;
+}
+.bg-light .title {
+    color: #111;
+}
+.bg-light p {
+    color: #333;
+}
+
+.bg-dark {
+    background-color: #111;
+}
+
+.bg-dark .heading h2 {
+    color: #ffff;
+}
+.bg-dark .title {
+    color: #fff;
+}
+.bg-dark p {
+    color: #aaa;
+}

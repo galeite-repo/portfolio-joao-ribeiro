@@ -1,0 +1,53 @@
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.navbar .logo-wrapper {
+    height: 29px;
+    overflow: hidden;
+
+}
+
+.logo-wrapper a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.logo-wrapper a strong {
+    font-family: 'Jost', sans-serif;
+    ;
+    font-size: 25px;
+    color: #fff;
+    letter-spacing: -5px;
+
+}
+
+
+
+.navbar .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navbar .navbar-links a {
+    font-family: Jost, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    color: rgb(200, 200, 200);
+    text-decoration: none;
+}
+
+.navbar .navbar-links a:hover {
+    color: rgb(255, 255, 255);
+
+}

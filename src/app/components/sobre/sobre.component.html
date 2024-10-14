@@ -1,0 +1,30 @@
+<section class="about bg-light" id="about">
+    <div class="container">
+
+        <div class="box">
+            <h2 class="title">{{sobre.titulo}}</h2>
+            <p>{{sobre.descricao}}</p>
+            <ul>
+                <li *ngFor="let destaque of sobre.destaques">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <span>{{destaque}}</span>
+                </li>
+            </ul>
+
+            <div class="about-bottom">
+                <img [src]="sobre.assinaturaUrl" alt="" class="signature">
+                <div class="about-name-wrapper">
+                    <div class="about-name-dark">{{sobre.nome}}</div>
+                    <div class="about-rol">{{sobre.cargo}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-img">
+            <div class="img">
+                <img [src]="sobre.fotoUrl" alt="">
+            </div>
+        </div>
+
+    </div>
+</section>

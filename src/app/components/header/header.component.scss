@@ -1,0 +1,37 @@
+.header {
+    min-height: 100vh;
+    background-color: #111;
+    background-position: top right;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.header {   
+    min-height: 100vh;
+    background-color: #111;
+    display: flex;
+    align-items: center;
+}
+
+.header .box {
+    max-width: 50%;
+    min-width: 300px;
+}
+
+.header .box h1 {
+    color: #fff;
+}
+
+.header .box .btn {
+    padding: 0.25rem 1rem;
+    border: 1px solid #fff;
+    margin-right: 1rem;
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 14px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
