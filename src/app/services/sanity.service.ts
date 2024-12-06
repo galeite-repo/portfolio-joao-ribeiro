@@ -5,6 +5,7 @@ import { from, Observable } from 'rxjs';
 import { Sobre } from '../models/sobre';
 import { Servico } from '../models/servico';
 import { Galeria } from '../models/galeria';
+import { Contato } from '../models/contato';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +28,8 @@ export class SanityService {
   }
   getGaleria(): Observable<Galeria[]> {
     return from(client.fetch('*[_type == "galeria"]'))
+  }
+  getContato(): Observable<Contato> {
+    return from(client.fetch('*[_type == "contato"][0]'))
   }
 }

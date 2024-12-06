@@ -15,6 +15,15 @@ import { Sobre } from './models/sobre';
 import { LoadingComponent } from "./components/loading/loading.component";
 import { Servico } from './models/servico';
 import { Galeria } from './models/galeria';
+import { HomeService } from './services/home.service';
+import { Observable } from 'rxjs/internal/Observable';
+import { LoadingService } from './services/loading.service';
+import { SobreService } from './services/sobre.service';
+import { ServicoService } from './services/servico.service';
+import { GaleriaService } from './services/galeria.service';
+import { ContatoService } from './services/contato.service';
+import { Contato } from './models/contato';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -29,70 +38,93 @@ import { Galeria } from './models/galeria';
     GaleriaComponent,
     ContatoComponent,
     FooterComponent,
-    LoadingComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  home?: Home
+  // home?: Home
+  isLoading = true;
+  loadingOpacity = 1;
+  home?: Home;
   sobre?: Sobre
   servico?: Servico
   galeria?: Galeria[]
-  constructor(private sanityService: SanityService) { }
-
-  ngOnInit() {
-    this.loadHeader();
-    this.loadSobre();
-    this.loadServico();
-    this.loadGaleria();
+  contato?: Contato
+  constructor(
+    private sanityService: SanityService,
+    private homeService: HomeService,
+    private sobreService: SobreService,
+    private servicoService: ServicoService,
+    private galeriaService: GaleriaService,
+    private contatoService: ContatoService,
+  ) {
   }
 
-  loadHeader() {
-    this.sanityService.getHome().subscribe({
-      next: (data: Home) => {
-        this.home = data;
-        this.home.fotoUrl = urlFor(this.home.foto.asset).url();
+  ngOnInit() {
+    this.loadData();
+  }
+
+  loadData() {
+    forkJoin({
+      home: this.homeService.execute(),
+      sobre: this.sobreService.execute(),
+      servico: this.servicoService.execute(),
+      galeria: this.galeriaService.execute(),
+      contato: this.contatoService.execute()
+    }).subscribe({
+      next: (result) => {
+        this.home = result.home;
+        this.sobre = result.sobre;
+        this.servico = result.servico;
+        this.galeria = result.galeria;
+        this.contato = result.contato;
+        // this.isLoading = false; // Carregamento concluído
+        setTimeout(() => {
+          this.loadingOpacity = 0;
+          this.isLoading = false
+        }, 1200); // Remove após o fade
       },
-      error: (err) => console.log(err)
+      error: (err) => {
+        console.error('Failed to load data:', err);
+        this.isLoading = false; // Caso ocorra um erro, remova a página de loading
+      }
+    });
+  }
+
+  loadHome() {
+    this.homeService.execute().subscribe({
+      next: (home) => this.home = home,
+      error: (err) => console.error('Erro loading home:', err),
+      // complete: () => this.loadingService.hideLoading(),
     });
   }
 
   loadSobre() {
-    this.sanityService.getSobre().subscribe({
-      next: (data: Sobre) => {
-        this.sobre = data;
-        this.sobre.fotoUrl = urlFor(this.sobre.foto.asset).url();
-        this.sobre.assinaturaUrl = urlFor(this.sobre.assinatura.asset).url();
-      },
-      error: (err) => console.log(err)
+    this.sobreService.execute().subscribe({
+      next: (sobre) => this.sobre = sobre,
+      error: (err) => console.error('Erro loading sobre:', err),
     });
   }
 
   loadServico() {
-    this.sanityService.getServicos().subscribe({
-      next: (data: Servico) => {
-        this.servico = data;
-        this.servico.servicos.map((item) => {
-          item.iconUrl = urlFor(item.icon.asset).url();
-        })
-      },
-      error: (err) => console.log(err)
+    this.servicoService.execute().subscribe({
+      next: (servico) => this.servico = servico,
+      error: (err) => console.error('Erro loading servico:', err),
     });
   }
 
   loadGaleria() {
-    this.sanityService.getGaleria().subscribe({
-      next: (data: Galeria[]) => {
-        // this.ga
-        this.galeria = data;
-        this.galeria.map((item) => {
-          item.fotos.map((foto) => {
-            foto.fotoUrl = urlFor(foto.foto.asset).url();
-          })
-        })
-      },
-      error: (err) => console.log(err)
+    this.galeriaService.execute().subscribe({
+      next: (galeria) => this.galeria = galeria,
+      error: (err) => console.error('Erro loading galeria:', err),
+    });
+  }
+  loadContato() {
+    this.contatoService.execute().subscribe({
+      next: (contato) => this.contato = contato,
+      error: (err) => console.error("Erro loading contato:", err),
+      complete: () => console.log(this.contato)
     })
   }
 }

@@ -29,7 +29,5 @@ export class GaleriaComponent implements OnInit {
     );
     this.fotos = this.filteredData.map((item: any) => item.fotos).flat();
 
-
-    console.log(this.fotos)
   }
 }

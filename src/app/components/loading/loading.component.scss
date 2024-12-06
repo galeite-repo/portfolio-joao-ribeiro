@@ -1,17 +1,26 @@
-.loading {
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
     display: flex;
-    color: #fff;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
     justify-content: center;
-}
-.loading span {
-    margin: 0 10px;
-
-}
-.loading::before, .loading::after {
-    content: "―";
-    color: #fff;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .loading-overlay.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .loading-text {
+    color: white;
     font-size: 24px;
-}
+    font-weight: bold;
+  }
+  

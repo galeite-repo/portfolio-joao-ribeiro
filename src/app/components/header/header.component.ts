@@ -3,6 +3,7 @@ import { SanityService } from '../../services/sanity.service';
 import { Home } from '../../models/home';
 import { NgIf } from '@angular/common';
 import { urlFor } from '../../services/sanity.client';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',

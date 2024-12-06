@@ -1,10 +1,13 @@
-<app-navbar *ngIf="home" [home]="home"></app-navbar>
-<app-header *ngIf="home" [home]="home"></app-header>
-<app-sobre *ngIf="sobre" [sobre]="sobre"></app-sobre>
-<app-servicos *ngIf="servico" [servico]="servico"></app-servicos>
-<app-galeria *ngIf="galeria" [galeria]="galeria"></app-galeria>
-<app-contato></app-contato>
-<app-footer></app-footer>
-
-<app-loading *ngIf="!home"></app-loading>
-<router-outlet></router-outlet>
+<div [ngClass]="{ 'hidden': loadingOpacity === 0 }" class="loading-page">
+    <div class="loading-text">Loading...</div>
+  </div>
+  <div *ngIf="!isLoading">
+    <app-navbar *ngIf="home" [home]="home"></app-navbar>
+    <app-header *ngIf="home" [home]="home"></app-header>
+    <app-sobre *ngIf="sobre" [sobre]="sobre"></app-sobre>
+    <app-servicos *ngIf="servico" [servico]="servico"></app-servicos>
+    <app-galeria *ngIf="galeria" [galeria]="galeria"></app-galeria>
+    <app-contato></app-contato>
+    <app-footer></app-footer>
+    <router-outlet></router-outlet>
+  </div>
