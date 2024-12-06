@@ -1,31 +1,34 @@
-
-
 .contact {
     position: relative;
+    padding: 2rem 1rem;
 }
 
+/* Lista de informações */
 .contact ul {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    padding: 0;
 }
 
-.contact ul li{
-    font-size: 18px;
+.contact ul li {
+    font-size: 1rem; /* Ajuste proporcional para todas as telas */
     color: #333;
 }
+
 .contact ul span {
-    font-size: 16px;
+    font-size: 0.875rem;
     color: #333;
-    padding: 0px 4px;
+    padding: 0 4px;
 }
+
 .contact .form-title {
-    font-size: 18px;
+    font-size: 1.125rem;
     color: #000;
+    margin-bottom: 1rem;
 }
 
-
-
+/* Caixa do formulário */
 .contact .box-r {
     position: relative;
 }
@@ -36,10 +39,9 @@
     flex-direction: column;
     gap: 1rem;
     background: #1b1b1b;
-    height: 100%;
-    width: 100%;
-    z-index: 100;
-    padding: 2rem 1rem;
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    z-index: 1;
 }
 
 .contact .box-r:before {
@@ -50,57 +52,50 @@
     background-color: #b506066b;
     height: 100%;
     width: 100%;
+    border-radius: 8px;
     z-index: 0;
 }
 
 .box-r:after {
     content: '';
-    width: 50%;
     position: absolute;
+    width: 50%;
     top: -8%;
     bottom: 55%;
     left: -5%;
-    background-image: url(../../../assets/images/dots.png);
+    background-image: url('../../../assets/images/dots.png');
     background-repeat: repeat;
     z-index: 0;
 }
 
+/* Título do formulário */
 .contact .form-box h2 {
-    font-size: 22px;
-    color: #fffefe;
+    font-size: 1.375rem;
+    color: #fff;
 }
 
-
+/* Formulário */
 .contact form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-
 .contact .one-line {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+    flex-wrap: wrap; /* Ajusta para telas menores */
 }
 
-
-
+/* Inputs */
 .contact .box-input {
     position: relative;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 0rem;
+    padding: 0.75rem 0;
     border-bottom: 1px solid #fff;
-    border-radius: 1px;
-}
-
-.contact .box-input label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0.66rem;
 }
 
 .contact .box-input i {
@@ -110,30 +105,88 @@
 .contact .box-input textarea,
 .contact .box-input input {
     width: 100%;
-    font-size: 14px;
+    font-size: 1rem;
     border: none;
     background-color: transparent;
     color: #ffffff;
-}
-
-.contact .box-input textarea {
-    padding-left: 2.2rem;
-    
-    margin-top: 0.351rem;
+    outline: none;
 }
 
 .contact .box-input textarea::placeholder,
 .contact .box-input input::placeholder {
     color: #ffffff;
-    font-size: 12px;
-    text-transform: capitalize;
+    font-size: 0.875rem;
 }
 
-
+/* Botão de envio */
 .btn-send {
-    background-color: #fffefe;
+    background-color: #fff;
     color: #0b0b0b;
     padding: 0.75rem 1rem;
     border: none;
     cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-send:hover {
+    background-color: #ccc;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    /* Tablets */
+    .contact .form-box {
+        padding: 1.5rem;
+    }
+
+    .contact ul li {
+        font-size: 0.9375rem;
+    }
+
+    .contact ul span {
+        font-size: 0.8125rem;
+    }
+
+    .contact .form-box h2 {
+        font-size: 1.25rem;
+    }
+
+    .btn-send {
+        padding: 0.65rem 0.85rem;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    /* Mobile */
+    .contact .form-box {
+        padding: 1rem;
+        margin-top: 2rem;
+    }
+
+    .contact ul {
+        gap: 0.75rem;
+    }
+
+    .contact ul li {
+        font-size: 0.875rem;
+    }
+
+    .contact ul span {
+        font-size: 0.75rem;
+    }
+
+    .contact .form-box h2 {
+        font-size: 1.125rem;
+    }
+
+    .contact .box-input textarea,
+    .contact .box-input input {
+        font-size: 0.875rem;
+    }
+
+    .btn-send {
+        padding: 0.6rem 0.75rem;
+        font-size: 0.875rem;
+    }
 }

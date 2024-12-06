@@ -34,11 +34,6 @@
     display: inline-block;
 }
 
-.grid-wrapper .teste {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem; /* Espaçamento entre as imagens dentro de cada item */
-  }
   
 
 .grid-wrapper .image {
@@ -68,3 +63,9 @@
     grid-row: span 2;
 }
 
+
+@media screen and (max-width: 580px) {
+    .container {
+        justify-content: center;
+    }
+}

@@ -52,3 +52,13 @@
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+@media screen and (max-width: 480px) {
+    .services .container {
+        justify-content: center;
+        gap: 0px;
+    }
+    .section-title2 {
+        padding: 2rem;
+    }
+}
