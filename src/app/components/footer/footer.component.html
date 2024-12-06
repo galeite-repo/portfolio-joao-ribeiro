@@ -7,10 +7,12 @@
             </div>
             <div class="form">
                 <div>
-                    <button type="button">
-                        <i class="fab fa-instagram"></i>
-                        Ir para o Instagram
-                    </button>
+                    <a href="https://instagram.com/{{contato.instagram}}">
+                        <button type="button">
+                            <i class="fab fa-instagram"></i>
+                            Ir para o Instagram
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -20,7 +22,7 @@
             <div class="box">
                 <div class="logo-wrapper">
                     <!-- <a class="logo"> <strong>JR</strong> João Ribeiro </a> -->
-                    <a class="logo" href="/"> <strong>JR</strong> João Ribeiro </a>
+                    <a class="logo" href="/"> <strong>{{iniciais}}</strong> {{home.nome}} </a>
                 </div>
                 <div class="text">
                     <p>Cada clique é uma história capturada, onde a luz encontra a emoção e transforma o momento em
@@ -30,10 +32,10 @@
             <div class="box">
                 <h3 class="title">Mapa</h3>
                 <ul>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#services">Serviços</a></li>
-                    <li><a href="#works">Trabalhos</a></li>
-                    <li><a href="#contact">contato</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#trabalhos">Trabalhos</a></li>
+                    <li><a href="#contato">contato</a></li>
                 </ul>
             </div>
 
@@ -43,18 +45,18 @@
                     <li>
                         <i class="fa fa-phone"></i>
                         <span>
-                            (11) 97763-7563
+                            {{contato.telefone}}
                         </span>
                     </li>
                     <li>
                         <i class="fa fa-at"></i>
                         <span>
-                            joaoribeiro7art
+                            {{contato.instagram}}
                         </span>
                     </li>
                     <li>
                         <span>
-                            Estr. de Itapecerica, 449 - Sala 8 - Vila das Belezas, São Paulo - SP, 05835-001
+                            {{contato.endereco}}
                         </span>
                     </li>
                 </ul>
@@ -65,15 +67,15 @@
 
     <div class=" copyright">
         <div class="box">
-            <p class="">Copyright © 2024 by <a href="https://galeite.com">Gabriel Leite</a>. All rights reserved.</p>
+            <p class="">Copyright © 2024 by <a href="https://galeite.com" target="_blank">Gabriel Leite</a>. All rights
+                reserved.</p>
         </div>
         <div class="box">
             <ul class="social-icons">
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                <!-- <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li> -->
+                <li><a href="https://www.linkedin.com/in/-gabriel-leite/" target="_blank"><i
+                            class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://galeite.com" target="_blank"><i class="fab fa-dribbble"></i></a></li>
             </ul>
         </div>
     </div>

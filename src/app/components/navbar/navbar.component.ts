@@ -10,8 +10,7 @@ import { Home } from '../../models/home';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent implements OnChanges {
-  @Input()
-  home!: Home;
+  @Input() home!: Home;
   iniciais: string = ''
   constructor() { }
 

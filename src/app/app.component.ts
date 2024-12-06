@@ -12,7 +12,6 @@ import { Home } from './models/home';
 import { CommonModule } from '@angular/common';
 import { urlFor } from './services/sanity.client';
 import { Sobre } from './models/sobre';
-import { LoadingComponent } from "./components/loading/loading.component";
 import { Servico } from './models/servico';
 import { Galeria } from './models/galeria';
 import { HomeService } from './services/home.service';

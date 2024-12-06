@@ -1,4 +1,4 @@
-<section class="contact bg-light" id="contact">
+<section class="contact bg-light" id="contato">
     <div class="container">
 
         <div class="box">
@@ -8,16 +8,16 @@
             <ul>
                 <li>
                     <i class="fa fa-phone" aria-hidden="true"></i>
-                    <span>(11) 97763-7563</span>
+                    <span>{{contato.telefone}}</span>
                 </li>
                 <li>
                     <i class="fa fa-at" aria-hidden="true"></i>
-                    <span>joaoribeiro7art</span>
+                    <span>{{contato.instagram}}</span>
 
                 </li>
                 <li>
                     <i class="fa fa-location-pin" aria-hidden="true"></i>
-                    <span>Estr. de Itapecerica, 449 - Sala 8 - Vila das Belezas, São Paulo - SP, 05835-001</span>
+                    <span>{{contato.endereco}}</span>
                 </li>
             </ul>
 
@@ -29,28 +29,40 @@
                     <div class="form-title">
                         <h2>Entre em contato</h2>
                     </div>
-                    <form action="" method="post">
+                    <form (ngSubmit)="onSubmit()">
                         <div class="one-line">
-                            <div class="box-input">
-                                <i class="far fa-user"></i>
-                                <input type="text" name="" id="" class="text" placeholder="Nome..">
-                            </div>
-                            <div class="box-input">
-                                <i class="fa fa-phone"></i>
-                                <input type="text" name="" id="" class="text" placeholder="WhatsApp..">
-                            </div>
+                          <div class="box-input">
+                            <i class="far fa-user"></i>
+                            <input type="text" [(ngModel)]="nome" name="nome" id="" class="text" placeholder="Nome..">
+                          </div>
+                          <div class="box-input">
+                            <i class="fa fa-phone"></i>
+                            <input type="text" appPhoneMask name="whatsapp" [(ngModel)]="whatsapp" id="" class="text" placeholder="(00) 00000-0000">
+                          </div>
                         </div>
-
+                      
                         <div class="box-input">
-                            <i class="fa fa-at"></i>
-                            <input type="email" name="" id="" class="text" placeholder="E-mail..">
+                          <i class="fa fa-at"></i>
+                          <input type="email" name="email" [(ngModel)]="email" id="" class="text" placeholder="E-mail..">
                         </div>
                         <div class="box-input">
-                            <label class="address"><i class="fa fa-comment"></i></label>
-                            <textarea name="" id="" cols="30" rows="5" placeholder="Comentário.."></textarea>
+                          <label class="address"><i class="fa fa-comment"></i></label>
+                          <textarea name="comentario" id="" cols="30" [(ngModel)]="comentario" rows="5" placeholder="Comentário.."></textarea>
                         </div>
-                        <button class="btn-send">Enviar Contato</button>
-                    </form>
+                      
+                        <button class="btn-send" type="submit"  [disabled]="isLoading || !isFormValid() || successMessage">
+                          <ng-container *ngIf="!successMessage">
+                            <span *ngIf="!isLoading">Enviar Contato</span>
+                            <span *ngIf="isLoading">Enviado...</span>
+                          </ng-container>
+                      
+                          <ng-container *ngIf="successMessage">
+                            <span>Enviado com Sucesso!</span>
+                          </ng-container>
+                        </button>
+                      </form>
+                      
+                      
                 </div>
 
 

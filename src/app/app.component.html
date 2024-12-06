@@ -7,7 +7,7 @@
     <app-sobre *ngIf="sobre" [sobre]="sobre"></app-sobre>
     <app-servicos *ngIf="servico" [servico]="servico"></app-servicos>
     <app-galeria *ngIf="galeria" [galeria]="galeria"></app-galeria>
-    <app-contato></app-contato>
-    <app-footer></app-footer>
+    <app-contato *ngIf="contato" [contato]="contato"></app-contato>
+    <app-footer *ngIf="contato && home" [contato]="contato" [home]="home"></app-footer>
     <router-outlet></router-outlet>
   </div>
