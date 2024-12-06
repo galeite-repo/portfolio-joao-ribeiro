@@ -1,0 +1,17 @@
+.loading {
+    display: flex;
+    color: #fff;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loading span {
+    margin: 0 10px;
+
+}
+.loading::before, .loading::after {
+    content: "―";
+    color: #fff;
+    font-size: 24px;
+}

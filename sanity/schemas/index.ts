@@ -1,6 +1,8 @@
+import galeria from "./galeria";
 import home from "./home";
+import servicos from "./servicos";
 import sobre from "./sobre";
 
 export const schemaTypes = [
-    home, sobre
+    home, sobre, servicos, galeria
 ]

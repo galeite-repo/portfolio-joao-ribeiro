@@ -12,6 +12,9 @@ import { Home } from './models/home';
 import { CommonModule } from '@angular/common';
 import { urlFor } from './services/sanity.client';
 import { Sobre } from './models/sobre';
+import { LoadingComponent } from "./components/loading/loading.component";
+import { Servico } from './models/servico';
+import { Galeria } from './models/galeria';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +28,8 @@ import { Sobre } from './models/sobre';
     ServicosComponent,
     GaleriaComponent,
     ContatoComponent,
-    FooterComponent
+    FooterComponent,
+    LoadingComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -33,11 +37,15 @@ import { Sobre } from './models/sobre';
 export class AppComponent implements OnInit {
   home?: Home
   sobre?: Sobre
+  servico?: Servico
+  galeria?: Galeria[]
   constructor(private sanityService: SanityService) { }
 
   ngOnInit() {
     this.loadHeader();
     this.loadSobre();
+    this.loadServico();
+    this.loadGaleria();
   }
 
   loadHeader() {
@@ -59,5 +67,32 @@ export class AppComponent implements OnInit {
       },
       error: (err) => console.log(err)
     });
+  }
+
+  loadServico() {
+    this.sanityService.getServicos().subscribe({
+      next: (data: Servico) => {
+        this.servico = data;
+        this.servico.servicos.map((item) => {
+          item.iconUrl = urlFor(item.icon.asset).url();
+        })
+      },
+      error: (err) => console.log(err)
+    });
+  }
+
+  loadGaleria() {
+    this.sanityService.getGaleria().subscribe({
+      next: (data: Galeria[]) => {
+        // this.ga
+        this.galeria = data;
+        this.galeria.map((item) => {
+          item.fotos.map((foto) => {
+            foto.fotoUrl = urlFor(foto.foto.asset).url();
+          })
+        })
+      },
+      error: (err) => console.log(err)
+    })
   }
 }

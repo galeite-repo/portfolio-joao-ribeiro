@@ -1,72 +1,15 @@
 <section class="services bg-dark" id="services">
     <div class="heading">
         <h2 class="section-title"><span>Meus Serviços</span></h2>
-        <p class="section-title2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-            has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-            type and scrambled it to make a type specimen book.</p>
+        <p class="section-title2">{{servico.descricao}}</p>
     </div>
     <div class="container">
-
-        <div class="box border-01">
+        <div *ngFor="let item of servico.servicos" class="box border-item">
             <div class="item">
-                <img src="./assets/images/icons/icon-1.svg" alt="">
-                <h6>Fotografia</h6>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                <img [src]="item.iconUrl" alt="">
+                <h6>{{item.title}}</h6>
+                <p>{{item.descricao}}</p>
             </div>
         </div>
-        <div class="box border-02">
-            <div class="item">
-                <img src="./assets/images/icons/icon-2.svg" alt="">
-
-                <h6>Videografia</h6>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-
-            </div>
-        </div>
-
-        <div class="box border-03">
-            <div class="item">
-                <img src="./assets/images/icons/icon-3.svg" alt="">
-
-
-                <h6>Retoque de fotos</h6>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-
-            </div>
-        </div>
-
-
-        <div class="box border-04">
-            <div class="item">
-                <img src="./assets/images/icons/icon-4.svg" alt="">
-
-                <h6>Fotografia aérea</h6>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-
-            </div>
-        </div>
-
-
-
-
-        <div class="box border-05">
-            <div class="item">
-                <img src="./assets/images/icons/icon-5.svg" alt="">
-
-                <h6>Configuração de cenário</h6>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-
-            </div>
-        </div>
-        <div class="box border-06">
-            <div class="item">
-                <img src="./assets/images/icons/icon-6.svg" alt="">
-
-                <h6>Outros</h6>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-
-            </div>
-        </div>
-
     </div>
 </section>

@@ -1,8 +1,10 @@
 <app-navbar *ngIf="home" [home]="home"></app-navbar>
 <app-header *ngIf="home" [home]="home"></app-header>
 <app-sobre *ngIf="sobre" [sobre]="sobre"></app-sobre>
-<app-servicos></app-servicos>
-<app-galeria></app-galeria>
+<app-servicos *ngIf="servico" [servico]="servico"></app-servicos>
+<app-galeria *ngIf="galeria" [galeria]="galeria"></app-galeria>
 <app-contato></app-contato>
 <app-footer></app-footer>
+
+<app-loading *ngIf="!home"></app-loading>
 <router-outlet></router-outlet>
